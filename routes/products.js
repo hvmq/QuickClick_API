@@ -14,7 +14,7 @@ const {
 //What to show when some one gose to "/" i.e home page
 //*post routes
 // router.route("/create").post(Create, upload.fields([{ name: "image" }]));
-router.post("/create", upload.fields([{ name: "image", maxCount: 1 }]), Create);
+router.route("/create").post(Create);
 router.route("/get").get(getAllProducts);
 router.route("/").get(getQuery);
 
