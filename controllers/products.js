@@ -13,31 +13,15 @@ const Create = async (req, res) => {
   const {
     name,
     company,
-    price,
-    colors,
-    description,
-    category,
-    featured,
-    rating,
   } = req.body;
   try {
-    if (req.files) {
-      const imageurl = req.files["image"][0].path;
       const upload = new Product({
         name: name,
         company: company,
-        price: price,
-        colors: colors,
-        image: imageurl,
-        description: description,
-        stock: stock,
-        category: category,
-        featured: featured,
-        rating: rating,
       });
       const uploadresult = await upload.save();
       res.json(uploadresult);
-    }
+   
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
